@@ -110,8 +110,9 @@ gulp.task('pug', ()=> {
 	gulp.src('./dev/pug/*.pug')
 		.pipe(plumber())
 		.pipe(pug({
-			pretty: true
+			pretty: false
 		}))
+
 		.pipe(gulp.dest('./dist/'))
 		.on('end', browserSync.reload);
 });
@@ -131,7 +132,7 @@ gulp.task('es6',() => {
 		.pipe(babel({
 			presets: ['es2015']
 		}))
-		// .pipe(uglify())
+		.pipe(uglify())
 		// .pipe(concat('main.js'))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./dist/js/'))

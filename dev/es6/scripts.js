@@ -20,3 +20,28 @@
         e.preventDefault();
     });
 })();
+(function () {
+    let menuid = $('.menuid');
+    menuid.on('click','a',function (e) {
+        e.preventDefault();
+        let link = $(this).attr('href');
+        $('html, body').animate({
+            scrollTop: $(link).offset().top
+        }, 2000);
+    });
+})();
+(function(){
+  let topBar = $('#top-bar'),
+      alto=$(window).height();
+
+    $(window).scroll( function(){
+      let top=$(this).scrollTop();
+      // console.log(top+' / '+alto);
+      if (top >= alto ){
+        topBar.slideDown();
+
+      }else{
+        topBar.slideUp();
+      }
+  })
+})();
