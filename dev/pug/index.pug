@@ -1,0 +1,83 @@
+block config
+  include config/variables
+
+mixin pic(name, ext)
+  picture
+    source(srcset=`img/webp/${name}.webp`, type="image/webp")
+    img(src=`img/${name}.${ext}`)
+
+<!DOCTYPE html>
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    meta(name="description", content="#{descripcion}")
+    meta(name="author", content="#{autor}")
+    title ABQ Climas | #{titulo}
+    link(rel="icon", href="img/favicon.png")
+    link(rel="stylesheet", href="css/styles.css")
+    block head
+  body
+    .top-bar#top-bar
+      .ed-container
+        .ed-item.movil-20
+          a.logo--top(href="/")
+            +pic('logo-top','png')
+        .ed-item.movil-80.main-end
+          ul.ed-menu.nav-bar.web-horizontal
+            include blocks/menu
+    header.header
+      a.logo(href="/")
+        +pic('logo','png')
+      ul.menu
+        include blocks/menu.pug
+    section.productos#productos
+      h2.title-page Productos
+      .ed-container
+        -var products = ['x2','x3','abtx36','magnum17','mpt','blu','vlu','patinumv']
+        each product in products
+          if product == "abtx36"
+            -var product1 = "abt x36"
+          else if product == "magnum17"
+            -var product1 = "magnum 17"
+          else if product == "patinumv"
+            -var product1 = "patinum v"
+          else
+            -var product1 = product
+          .ed-item.tablet-50.web-1-3
+            a(href="productos/"+product+".html", data-title=product1).modal
+              img(src="img/productos/"+product+".jpg" )
+    section.contacto#contacto
+      h2.title-page Contacto
+      .ed-container
+        .ed-item.tablet-50
+          <iframe src="https://www.google.com/maps/d/embed?mid=1tJWSeZ6UfeMR9hZ3W7TKcVMEzWU&hl=es-419&z=16" width="100%" height="480"></iframe>
+        .ed-item.tablet-50.formulario
+          h3 Para ponerse en contacto favor de llenar el siguiente formulario
+          form(action="enviar.php", method="post")#formulario
+            .input-group#nombre
+              span.icon-name
+              input(type="text", name="name", id="name")
+              label(for="name") Nombre:
+            .input-group#telefono
+              span.icon-phone
+              input(type="text", name="phone", id="phone")
+              label(for="phone") Teléfono:
+            .input-group#correo
+              span.icon-mail
+              input(type="mail", name="mail", id="mail")
+              label(for="mail") Correo Electrónico:
+            .input-group#mensaje
+              span.icon-edit
+              textarea(name="messagge", id="messagge")
+              label(for="mail") Mensaje:
+            button.btn-enviar#enviar(type="submit") Enviar
+      footer.footer
+        p &copy;
+          span#yearcurrent
+          | Derechos Reservados ABQ Climas | Desarrollado por:
+          a(href="http://sigmapcs.com.mx", target="_blank") SigmaPCS
+    script(src="js/scripts.min.js")
+    script(src="js/scripts.js")
+    block bottom

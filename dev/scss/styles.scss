@@ -1,0 +1,20 @@
+//configuraciones Generales
+@import "config/colors";
+@import "config/fonts";
+@import "config/variables";
+
+// Layuot
+@import "ed-grid/ed-grid";
+
+// Base Theme
+@import "theme/base";
+
+//theme
+@import "theme/menu";
+@import "theme/header";
+@import "theme/footer";
+@import "theme/main";
+@import "theme/aside";
+
+// modules
+@import "modules/modules";

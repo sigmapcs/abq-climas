@@ -1,0 +1,156 @@
+.title-page{
+  $width: 100%;
+  display: table;
+  text-align: center;
+  position: relative;
+  background: $main-color;
+  padding: 0 3em;
+  line-height: 3em;
+  color: $body--background;
+  margin: 5em auto 2em;
+  &::before, &::after{
+    content: '';
+    position: absolute;
+    width: $width;
+    height: 6px;
+    background: $main-color;
+    top: 50%;
+    transform: translateY(-50);
+  }
+  &:before{
+    left: $width*-1;
+  }
+  &::after{
+    right: $width*-1;
+  }
+}
+.productos{
+  .ed-item{
+    margin-bottom: $gutter*2;
+  }
+  a{
+    position: relative;
+    display: block;
+    border: 2px solid $main-color;
+    overflow: hidden;
+    &::before, &::after{
+      position: absolute;
+      width: 100%;
+      left: 0;
+      background: $main-color;
+      transition: all .3s;
+    }
+    &::before{
+      content: attr(data-title);
+      height: 2em;
+      line-height: 2em;
+      top: 0;
+      color: $body--background;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: $oswald;
+    }
+    &::after{
+      content: "";
+      height: 100%;
+      top: -100%;
+      background:
+              url("../img/zoom.png") center center / 32px no-repeat,
+              $main-color;
+    }
+    &:hover{
+      &::before {
+        top: calc(100% - 2em);
+        background: rgba($main-color, 0);
+        z-index: 2;
+      }
+
+      &::after{
+        background:
+                url("../img/zoom.png") center center / 32px no-repeat,
+                rgba($main-color,.75);
+        top: 0; //calc(0% - 2em);
+        z-index: 1;
+      }
+    }
+  }
+  img{
+    display: block;
+    width: 100%;
+  }
+}
+.formulario{
+  h3{
+    text-align: center;
+  }
+  .input-group{
+    margin-bottom: $gutter;
+    position: relative;
+    padding: 5px;
+    border: 1px solid $main-color;
+    border-radius: $gutter/2;
+    span{
+
+    }
+    label{
+      position: absolute;
+      left: 25px;
+    }
+    input, textarea{
+      position: absolute;
+      right: 0;
+      outline: none;
+      border: none;
+      display: inline-block;
+      width: 70%;
+      background: transparent;
+      font-size: 1.1em;
+    }
+    textarea{
+      resize: none;
+      height: 5em;
+      font-size: 1.4em;
+    }
+
+  }
+  #mensaje{
+    height: calc(5em + 0px);
+  }
+  .btn-enviar{
+    border: none;
+    float: right;
+    background: $main-color;
+    color: $body--background;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .2em;
+    &:hover{
+      background: darken($main-color,10);
+    }
+    &:active {
+      transform: scale(.95);
+    }
+  }
+}
+.contacto{
+  display: flex;
+  flex-direction: column;
+  .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    height: 4em;
+    a{
+      margin-left: 5px;
+      color: lighten($main-color,40);
+      font-weight: bold;
+      transition: all .3s;
+      &:hover{
+        color: lighten(steelblue,20);
+      }
+    }
+    background: $main-color;
+    color: $body--background;
+  }
+}

@@ -1,0 +1,66 @@
+.header{
+  height: 100vh;
+  background:
+          url("../img/dott.png") left top / 4px repeat,
+          url("../img/bg-magnum.jpg") center top / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .menu{
+    width: 90%;
+    max-width: 500px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    li{
+      background: color(blue);
+      padding: 0 1.5em;
+      border-radius: 5px;
+      transition: all .3s;
+      &:nth-child(1){
+        display: none;
+
+      }
+      &:hover{
+        background: darken(color(blue),10);
+      }
+    }
+    a{
+      display: block;
+      color: color(white);
+      line-height: 3em;
+      text-align: center;
+      font-size: 1.5em;
+      text-transform: uppercase;
+    }
+  }
+}
+.top-bar{
+  background: $main-color;
+  position: fixed;
+  width: 100%;
+  border-bottom: 2px solid darken(color(blue),10);
+  display: none;
+  //height: 3em;
+  .ed-item:nth-child(1){
+    height: 3em;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo--top{
+    display: block;
+
+  }
+}
+.ed-menu{
+  //background: transparent !important;
+  //a{
+  //  color: #fff !important;
+  //  text-transform: uppercase;
+  //}
+}

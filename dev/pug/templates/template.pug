@@ -1,0 +1,36 @@
+block config
+  include ../config/variables
+
+mixin pic(name, ext)
+  picture
+    source(srcset=`img/webp/${name}.webp`, type="image/webp")
+    img(src=`img/${name}.${ext}`)
+
+<!DOCTYPE html>
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    meta(name="description", content="#{descripcion}")
+    meta(name="author", content="#{autor}")
+    title ABQ Climas | #{titulo}
+    link(rel="icon", href="img/favicon.png")
+    link(rel="stylesheet", href="css/styles.css")
+    block head
+  body
+    header.header
+      include ../blocks/header
+    section.banner.container
+      .item
+        block banner
+    section#main.container
+      main.item.web-75
+        block  main
+      aside.item.web-25
+        include ../blocks/aside
+    footer.footer
+      include ../blocks/footer
+    script(src="js/scripts.min.js")
+    script(src="js/scripts.js")
+    block bottom

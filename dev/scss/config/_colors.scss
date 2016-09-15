@@ -1,0 +1,34 @@
+$colors:(
+        black       : #070D12,
+        white       : #FDFDFD,
+        blue        : #0F70B7,
+        blue-dark   : hsl(220,50,40),
+        blue-light  : hsl(220,50,60),
+        grey        : hsl(0,0,50),
+        grey-dark   : hsl(0,0,30),
+        grey-light  : hsl(0,0,80),
+        red         : hsl(0,50,50),
+        red-dark    : hsl(0,50,40),
+        red-light   : hsl(0,50,60),
+        yellow      : hsl(60,75,50),
+        yellow-dark : hsl(60,75,50),
+        yellow-light: hsl(60,75,50),
+        green       : hsl(123,46,34),
+        green-dark  : hsl(123,46,20),
+        green-ligth : hsl(123,46,60),
+        facebook    : #3b5998,
+        twitter     : #55acee,
+        googleplus  : #dd4b39,
+        youtube     : #bb0000,
+        linkedin    : #007bb5,
+        instagram   : #e95950,
+        whatsapp    : #4dc247,
+        pinterest   : #cb2027,
+        vine        : #00bf8f,
+        snapchat    : #fffc00
+);
+
+@function color($name){
+  $color: map-get($colors,$name);
+  @return $color;
+}
